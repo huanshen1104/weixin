@@ -3,7 +3,7 @@
 require_once 'wechat-php-sdk/wechat.class.php';
 
 $options = array(
-    'token'=>'lilvqing' //填写你设定的key
+    'token'=>'lilvqingtest' //填写你设定的key
 );
 
 $weObj = new Wechat($options);
