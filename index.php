@@ -144,7 +144,7 @@ function log($file, $priority, $title, $logArr = '')
  * @return String
  */
 function getTraceId(){
-    return CURRENT_TIMESTAMP . rand(10000,99999);
+    return $_SERVER['REQUEST_TIME'] . rand(10000,99999);
 }
 
 function Clientip(){
