@@ -16,7 +16,7 @@ $dir = '/var/www/html/weixin/logs/' . date('Ymd');
 if (!is_dir($dir)) {
     $res = mkdir($dir, 0777, true);
 }
-var_dump($res);exit;
+//var_dump($res);exit;
 // 完整路劲
 $fullFile = $dir . '/' . 'weixin.log';
 
