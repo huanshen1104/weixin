@@ -1,4 +1,5 @@
 <?php
+exit('aaa');
 
 require_once 'wechat-php-sdk/wechat.class.php';
 
