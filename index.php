@@ -9,13 +9,14 @@
 //$weObj->valid();
 //$type = $weObj->getRev()->getRevType();
 
-$postStr = file_get_contents("php://input");
+//$postStr = file_get_contents("php://input");
 
 $dir = '/var/www/html/weixin/logs/' . date('Ymd');
 
 if (!is_dir($dir)) {
-    mkdir($dir, 0777, true);
+    $res = mkdir($dir, 0777, true);
 }
+var_dump($res);exit;
 // 完整路劲
 $fullFile = $dir . '/' . 'weixin.log';
 
