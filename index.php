@@ -9,7 +9,7 @@ $options = array(
 $weObj = new Wechat($options);
 $weObj->valid();
 $type = $weObj->getRev()->getRevType();
-log('weixin.log', 'debug', '测试', $type);
+//log('weixin.log', 'debug', '测试', $type);
 
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
