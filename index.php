@@ -9,6 +9,22 @@ $weObj = new Wechat($options);
 $weObj->valid();
 $type = $weObj->getRev()->getRevType();
 
+$dir = '/home/logs/acc_act/' . date('Ymd');
+
+if (!is_dir($dir)) {
+    mkdir($dir, 0777, true);
+}
+// 完整路劲
+$fullFile = $dir . '/' . 'weixin.log';
+
+$fp = fopen($fullFile, "a");
+flock($fp, LOCK_EX);
+fwrite($fp, $type . "\r\n");
+flock($fp, LOCK_UN);
+fclose($fp);
+
+
+
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
         $weObj->text("hello, I'm lilvqing")->reply();
