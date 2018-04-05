@@ -11,7 +11,7 @@
 
 $postStr = file_get_contents("php://input");
 
-$dir = '/home/logs/acc_act/' . date('Ymd');
+$dir = '/var/www/html/weixin/logs/' . date('Ymd');
 
 if (!is_dir($dir)) {
     mkdir($dir, 0777, true);
@@ -24,7 +24,7 @@ flock($fp, LOCK_EX);
 fwrite($fp, $postStr . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
-exit('aaa');
+exit($fullFile);
 
 
 switch($type) {
