@@ -9,7 +9,6 @@ $weObj = new Wechat($options);
 
 //$weObj->valid();
 $type = $weObj->getRev()->getRevType();
-echo '<pre>';var_dump($type);exit;
 
 $postStr = file_get_contents("php://input");
 
@@ -23,9 +22,7 @@ $fullFile = $dir . '/' . 'weixin.log';
 
 $fp = fopen($fullFile, "a");
 flock($fp, LOCK_EX);
-fwrite($fp, '$postStr:'. $postStr . "\r\n");
-fwrite($fp, '$type:' . $type . "\r\n");
-fwrite($fp, '$weObj:' . $weObj . "\r\n");
+fwrite($fp, '$type:'. $type . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
 
