@@ -26,6 +26,7 @@ fwrite($fp, '$postStr:'. $postStr . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
 
+$type = 'text';
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
         $weObj->text("hello, I'm lilvqing")->reply();
