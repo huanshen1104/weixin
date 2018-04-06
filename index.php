@@ -1,4 +1,6 @@
 <?php
+
+phpinfo();exit;
 require_once 'wechat-php-sdk/wechat.class.php';
 
 $options = array(
