@@ -5,9 +5,9 @@ $options = array(
     'token'=>'lilvqingtest' //填写你设定的key
 );
 
-$weObj = new Wechat($options);
-$weObj->valid();
-$type = $weObj->getRev()->getRevType();
+//$weObj = new Wechat($options);
+//$weObj->valid();
+//$type = $weObj->getRev()->getRevType();
 
 $postStr = file_get_contents("php://input");
 
