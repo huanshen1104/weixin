@@ -5,9 +5,9 @@ $options = array(
     'token'=>'lilvqingtest' //填写你设定的key
 );
 
-//$weObj = new Wechat($options);
+$weObj = new Wechat($options);
 //$weObj->valid();
-//$type = $weObj->getRev()->getRevType();
+$type = $weObj->getRev()->getRevType();
 
 $postStr = file_get_contents("php://input");
 
@@ -21,10 +21,11 @@ $fullFile = $dir . '/' . 'weixin.log';
 
 $fp = fopen($fullFile, "a");
 flock($fp, LOCK_EX);
-fwrite($fp, $postStr . "\r\n");
+fwrite($fp, '$postStr:'. $postStr . "\r\n");
+fwrite($fp, '$type:' . $type . "\r\n");
+fwrite($fp, '$weObj:' . $weObj . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
-exit();
 
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
