@@ -1,6 +1,7 @@
 <?php
 
 require_once 'wechat-php-sdk/wechat.class.php';
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 $options = array(
     'token'=>'lilvqingtest', //填写你设定的key
