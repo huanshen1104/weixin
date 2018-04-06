@@ -221,6 +221,20 @@ class Wechat {
         if (!empty($postStr)) {
             $this->_receive = (array) simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         }
+
+        $dir = '/var/www/html/weixin/logs/' . date('Ymd');
+
+        if (!is_dir($dir)) {
+            $res = mkdir($dir, 0777, true);
+        }
+// 完整路劲
+        $fullFile = $dir . '/' . 'weixin.log';
+
+        $fp = fopen($fullFile, "a");
+        flock($fp, LOCK_EX);
+        fwrite($fp, '$this->_receive:'. $this->_receive . "\r\n");
+        flock($fp, LOCK_UN);
+        fclose($fp);
         return $this;
     }
 
