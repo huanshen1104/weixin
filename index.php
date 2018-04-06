@@ -22,7 +22,7 @@ flock($fp, LOCK_EX);
 fwrite($fp, '消息类型：' . $type . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
-
+exit();
 
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
