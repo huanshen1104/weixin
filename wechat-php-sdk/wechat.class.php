@@ -218,7 +218,7 @@ class Wechat {
             return $this;
         $postStr = file_get_contents("php://input");
 //---------------------------------------------------------------
-        $res = (array) simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+        $res = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 
         $dir = '/var/www/html/weixin/logs/' . date('Ymd');
 
@@ -230,6 +230,7 @@ class Wechat {
 
         $fp = fopen($fullFile, "a");
         flock($fp, LOCK_EX);
+        fwrite($fp, '$postStr:'. $postStr . "\r\n");
         fwrite($fp, '$res:'. $res . "\r\n");
         //fwrite($fp, '$this->_receive:'. $this->_receive . "\r\n");
         flock($fp, LOCK_UN);
