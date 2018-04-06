@@ -15,23 +15,23 @@ $weObj = new Wechat($options);
 //$weObj->valid();
 $type = $weObj->getRev()->getRevType();
 
-$postStr = file_get_contents("php://input");
-
-$dir = '/var/www/html/weixin/logs/' . date('Ymd');
-
-if (!is_dir($dir)) {
-    $res = mkdir($dir, 0777, true);
-}
-// 完整路劲
-$fullFile = $dir . '/' . 'weixin.log';
-
-$fp = fopen($fullFile, "a");
-flock($fp, LOCK_EX);
-fwrite($fp, '$type:'. $type . "\r\n");
-fwrite($fp, '$postStr:'. $postStr . "\r\n");
-fwrite($fp, '$weObj:'. var_export($weObj, true) . "\r\n");
-flock($fp, LOCK_UN);
-fclose($fp);
+//$postStr = file_get_contents("php://input");
+//
+//$dir = '/var/www/html/weixin/logs/' . date('Ymd');
+//
+//if (!is_dir($dir)) {
+//    $res = mkdir($dir, 0777, true);
+//}
+//// 完整路劲
+//$fullFile = $dir . '/' . 'weixin.log';
+//
+//$fp = fopen($fullFile, "a");
+//flock($fp, LOCK_EX);
+//fwrite($fp, '$type:'. $type . "\r\n");
+//fwrite($fp, '$postStr:'. $postStr . "\r\n");
+//fwrite($fp, '$weObj:'. var_export($weObj, true) . "\r\n");
+//flock($fp, LOCK_UN);
+//fclose($fp);
 
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
