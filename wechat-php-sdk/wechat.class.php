@@ -233,8 +233,8 @@ class Wechat {
 
         $fp = fopen($fullFile, "a");
         flock($fp, LOCK_EX);
-        //fwrite($fp, '$postStr:'. $postStr . "\r\n");
-        fwrite($fp, '$this->_receive:'. $this->_receive . "\r\n");
+        fwrite($fp, '$postStr:'. $postStr . "\r\n");
+        //fwrite($fp, '$this->_receive:'. $this->_receive . "\r\n");
         flock($fp, LOCK_UN);
         fclose($fp);
 
