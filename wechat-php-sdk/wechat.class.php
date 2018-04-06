@@ -218,11 +218,6 @@ class Wechat {
             return $this;
         $postStr = file_get_contents("php://input");
 
-        //$this->log($postStr);
-        if (!empty($postStr)) {
-            $this->_receive = (array) simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-        }
-
         $dir = '/var/www/html/weixin/logs/' . date('Ymd');
 
         if (!is_dir($dir)) {
@@ -238,6 +233,10 @@ class Wechat {
         flock($fp, LOCK_UN);
         fclose($fp);
 
+        //$this->log($postStr);
+        if (!empty($postStr)) {
+            $this->_receive = (array) simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+        }
         return $this;
     }
 
