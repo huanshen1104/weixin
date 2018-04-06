@@ -19,7 +19,7 @@ $fullFile = $dir . '/' . 'weixin.log';
 
 $fp = fopen($fullFile, "a");
 flock($fp, LOCK_EX);
-fwrite($fp, $type . "\r\n");
+fwrite($fp, '消息类型：' . $type . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
 
