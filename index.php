@@ -13,7 +13,7 @@ $options = array(
 $weObj = new Wechat($options);
 
 //$weObj->valid();
-//$type = $weObj->getRev()->getRevType();
+$type = $weObj->getRev()->getRevType();
 
 $postStr = file_get_contents("php://input");
 
@@ -27,12 +27,12 @@ $fullFile = $dir . '/' . 'weixin.log';
 
 $fp = fopen($fullFile, "a");
 flock($fp, LOCK_EX);
-//fwrite($fp, '$postStr:'. $postStr . "\r\n");
+fwrite($fp, '$type:'. $type . "\r\n");
+fwrite($fp, '$postStr:'. $postStr . "\r\n");
 fwrite($fp, '$weObj:'. var_export($weObj, true) . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
 
-$type = 'text';
 switch($type) {
     case Wechat::MSGTYPE_TEXT:
         $weObj->text("hello, I'm lilvqing")->reply();
