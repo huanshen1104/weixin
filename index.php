@@ -28,7 +28,7 @@ $fullFile = $dir . '/' . 'weixin.log';
 $fp = fopen($fullFile, "a");
 flock($fp, LOCK_EX);
 //fwrite($fp, '$postStr:'. $postStr . "\r\n");
-fwrite($fp, '$weObj:'. $weObj . "\r\n");
+fwrite($fp, '$weObj:'. print_r($weObj) . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
 
