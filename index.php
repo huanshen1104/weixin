@@ -6,6 +6,7 @@ $options = array(
 );
 
 $weObj = new Wechat($options);
+echo '<pre>';var_dump($weObj);exit;
 //$weObj->valid();
 $type = $weObj->getRev()->getRevType();
 
