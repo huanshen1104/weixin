@@ -9,7 +9,7 @@
 //$weObj->valid();
 //$type = $weObj->getRev()->getRevType();
 
-//$postStr = file_get_contents("php://input");
+$postStr = file_get_contents("php://input");
 
 $dir = '/var/www/html/weixin/logs/' . date('Ymd');
 
