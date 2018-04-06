@@ -9,6 +9,8 @@ $weObj = new Wechat($options);
 $weObj->valid();
 $type = $weObj->getRev()->getRevType();
 
+$postStr = file_get_contents("php://input");
+
 $dir = '/var/www/html/weixin/logs/' . date('Ymd');
 
 if (!is_dir($dir)) {
@@ -19,7 +21,7 @@ $fullFile = $dir . '/' . 'weixin.log';
 
 $fp = fopen($fullFile, "a");
 flock($fp, LOCK_EX);
-fwrite($fp, '消息类型：' . $type . "\r\n");
+fwrite($fp, $postStr . "\r\n");
 flock($fp, LOCK_UN);
 fclose($fp);
 exit();
