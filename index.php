@@ -9,19 +9,19 @@ $weObj = new Wechat($options);
 $weObj->valid();
 $type = $weObj->getRev()->getRevType();
 
-//$dir = '/var/www/html/weixin/logs/' . date('Ymd');
-//
-//if (!is_dir($dir)) {
-//    $res = mkdir($dir, 0777, true);
-//}
+$dir = '/var/www/html/weixin/logs/' . date('Ymd');
+
+if (!is_dir($dir)) {
+    $res = mkdir($dir, 0777, true);
+}
 // 完整路劲
-//$fullFile = $dir . '/' . 'weixin.log';
-//
-//$fp = fopen($fullFile, "a");
-//flock($fp, LOCK_EX);
-//fwrite($fp, $postStr . "\r\n");
-//flock($fp, LOCK_UN);
-//fclose($fp);
+$fullFile = $dir . '/' . 'weixin.log';
+
+$fp = fopen($fullFile, "a");
+flock($fp, LOCK_EX);
+fwrite($fp, $type . "\r\n");
+flock($fp, LOCK_UN);
+fclose($fp);
 
 
 switch($type) {
